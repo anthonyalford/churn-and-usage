@@ -4,7 +4,13 @@
 Churn rate is an important metric for predicting the lifetime revenue of a customer in a Software-as-a-Serivce (SaaS) business. Similarly, a customer's usage of the SaaS product can give insight into the costs of servicing the customer. In this tutorial we show how to implement a probabilistic model of both churn and usage, using PyMC3, a popular probabilistic programming framework.
 
 ## Setup
-I've included a Docker file, two shell scripts, and a pip requirements file. The Docker file is based on the Jupyter Docker Stacks `scipy-notebook` image.
+If you have [conda](https://conda.io/docs/index.html) installed, you can use the provided environment file to setup a virtual environment:
+```
+  conda env create --file environment.yml
+  source activate churn-and-usage
+```
+
+If you prefer Docker, I've included a Docker file, two shell scripts, and a pip requirements file. The Docker file is based on the Jupyter Docker Stacks `scipy-notebook` image.
 
 If you'd like to run the notebook in Docker:
  * Open a terminal and `cd` to the directory where you cloned this repo

@@ -1,0 +1,9 @@
+name: churn-and-usage
+channels:
+  - conda-forge
+dependencies:
+  - python=3.6
+  - theano=1.0.1
+  - pymc3
+  - matplotlib
+  - jupyter
