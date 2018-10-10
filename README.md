@@ -32,10 +32,11 @@ When you connect to the instance, map its port 8888 to a port on your local mach
 Of course replace `my-key.pem` with the SSH key you specified when launching the instance, and also use the instance's real public DNS name.
 
 Once you've SSHed to the instance, clone this repository to its local storage, then run these commands:
->source ativate theano_p36
+```
+source activate theano_p36
 pip install pymc3
 jupyter notebook
-
+```
 
 ## Description
 Churn rate---the rate at which customers stop patronizing a business---is an important metric for predicting the lifetime revenue of a customer in a Software-as-a-Serivce (SaaS) business. However, to forecast total lifetime value of the customer, the costs associated with the customer must be considered as well. While many models assume a fixed margin per customer, SaaS businesses usually have detailed metrics of a customer's usage of services, leading to a more accurate measure of cost.
