@@ -96,7 +96,7 @@ print('reading from file ' + file)
 
 
 alldata = pd.read_csv(file)
-observed_usage=alldata.iloc[:5,1:13]
+observed_usage=alldata.iloc[:,1:].as_matrix()
 
 renewal_period = int(args.renewal)
 
@@ -128,7 +128,7 @@ with pm.Model() as model:
     start = pm.find_MAP(method='Powell')
     step1 = pm.Metropolis(vars=[r,PI,Q,A,G,th0,usage])
     step2 = pm.CategoricalGibbsMetropolis(vars=[states])
-    trace = pm.sample(draws, start=start, step=[step1,step2], chains=1)
+    trace = pm.sample(draws, start=start, step=[step1,step2], chains=chains)
 
 print('saving to ' + args.output_dir)
 pm.backends.ndarray.save_trace(trace, directory=args.output_dir, overwrite=True)
