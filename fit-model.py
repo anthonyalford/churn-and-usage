@@ -96,7 +96,7 @@ print('reading from file ' + file)
 
 
 alldata = pd.read_csv(file)
-observed_usage=alldata.iloc[:,1:].as_matrix()
+observed_usage=alldata.iloc[:,1:]
 
 renewal_period = int(args.renewal)
 
