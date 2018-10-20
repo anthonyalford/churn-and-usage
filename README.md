@@ -1,3 +1,6 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
 # Counting Your Customers the Hard Way: Modeling Software-as-a-Serivce Usage and Churn with PyMC3
 
 ## Summary
