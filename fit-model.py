@@ -85,7 +85,7 @@ parser.add_argument('-f', dest='file', help='he observation data file', required
 parser.add_argument('-o', dest='output_dir', help='directory path for saved trace', required=True)
 parser.add_argument('--chains', help='number of chains to sample from', default='1')
 parser.add_argument('--draws', help='number of draws for sampling', default='3000')
-parser.add_argument('--renewal', help='renewal period', default='3')
+parser.add_argument('--renewal', help='renewal period', default='12')
 parser.add_argument('--num-states', dest='num_states', help='number of states to model', default='3')
 args = parser.parse_args()
 
@@ -117,8 +117,8 @@ from scipy import optimize
 with pm.Model() as model:
     Q = pm.Dirichlet('Q', a=np.ones((num_states)) + 1., shape=(num_states))
     PI = pm.Dirichlet('PI', a=np.ones((num_states,num_states)) + 1., shape=(num_states,num_states))
-    r = pm.Gamma('r', alpha=0.01, beta=0.01)
-    A = pm.Gamma('A',alpha=r, beta=r, shape=((num_custs)))
+    r = pm.Gamma('r', alpha=0.01, beta=100.)
+    A = pm.Gamma('A',alpha=r, beta=1./r, shape=((num_custs)))
     th0 = pm.Uniform('th0',lower=0.0,upper=10.0)
     G = pm.Normal('G',mu=np.zeros(num_states-1), sd=np.ones(num_states-1)*10000., shape=(num_states-1))
 
